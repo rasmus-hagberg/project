@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:18
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: supersecret
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - ./init-db:/docker-entrypoint-initdb.d
+      - postgres_data:/var/lib/postgresql
+  app:
+    build: app
+    environment:
+      PGHOST: db
+      PGDATABASE: postgres
+      PGUSER: postgres
+      PGPASSWORD: supersecret
+    ports:
+      - "127.0.0.1:3000:3000"
+  fake_device_one:
+    build: fake_device
+  fake_device_two:
+    build: fake_device
+  fake_device_three:
+    build: fake_device
+
+volumes:
+  postgres_data:

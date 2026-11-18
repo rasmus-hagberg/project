@@ -1,0 +1,12 @@
+{
+  "type": "module",
+  "dependencies": {
+    "axios": "^1.21.1",
+    "fastify": "^5.12.8",
+    "@fastify/postgres": "^6.1.2",
+    "fastify-plugin": "^6.0.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.6.0"
+  }
+}
